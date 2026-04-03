@@ -1,0 +1,259 @@
+Build a complete, production-ready marketing website for TowSite, a done-for-you website design agency for towing companies. The site should showcase the business model, display the 5 template designs, and convert visitors into clients.
+
+BUSINESS INFO
+
+•
+Business Name: TowSite
+
+•
+Domain: towsite.com
+
+•
+Tagline: "Professional Towing Websites. Built Fast. Designed to Convert."
+
+•
+Call-to-Action: "Get Your Free Mockup" (primary) and "Schedule a Demo" (secondary)
+
+•
+Phone: [Your Phone Number]
+
+•
+Email: hello@towsite.com
+
+DESIGN SPECIFICATIONS
+
+•
+Color Palette: Deep charcoal (#1a1a2e) background, bright teal (#0d9488) as primary accent, white (#ffffff) for text, light gray (#f3f4f6) for cards/sections, warm gold (#f59e0b) for secondary highlights.
+
+•
+Typography: Bold sans-serif (e.g., Poppins or Montserrat) for headings. Clean sans-serif (e.g., Inter) for body text.
+
+•
+Layout: Single-page, modern SaaS-style. Sticky top navigation with logo, links (Features, Templates, Pricing, FAQ, Contact), and a teal "Get Started" button.
+
+PAGE SECTIONS (in scroll order)
+
+1.
+HERO
+
+•
+Heading: "Professional Towing Websites. Built Fast. Designed to Convert."
+
+•
+Subheading: "Get a custom, high-converting website for your towing business in days, not months. No coding. No long contracts."
+
+•
+Two buttons: "Get Your Free Mockup" (teal, primary) and "See Templates" (outlined, secondary).
+
+•
+Background: Subtle gradient or dark pattern. Optional placeholder for a mockup image showing one of the 5 templates on a phone screen.
+
+
+
+2.
+THE PROBLEM
+
+•
+Heading: "Most Towing Companies Have Terrible Websites"
+
+•
+Three pain points in cards:
+
+•
+"No Mobile Optimization" → Lost calls from drivers searching on their phones.
+
+•
+"Outdated Design" → Customers assume the company is unprofessional.
+
+•
+"No Lead Capture" → No way to convert website visitors into paying clients.
+
+
+
+
+
+3.
+THE SOLUTION
+
+•
+Heading: "TowSite: Done-For-You Towing Websites"
+
+•
+Subheading: "We design, build, and deploy a custom website for your towing business in 7 days."
+
+•
+Three features in cards:
+
+•
+"5 Professional Templates" → Choose the design that fits your brand.
+
+•
+"Mobile-First & SEO-Ready" → Rank higher on Google. Get more calls.
+
+•
+"Recurring Revenue Model" → $49-$99/month. Passive income for your business."
+
+
+
+
+
+4.
+THE 5 TEMPLATES
+
+•
+Heading: "Choose Your Template"
+
+•
+Display 5 template showcase cards in a responsive grid (2-3 per row on desktop, 1 on mobile). Each card has:
+
+•
+Template name (e.g., "Emergency Hero")
+
+•
+One-sentence description (e.g., "Dark, bold, urgency-driven design for emergency towing.")
+
+•
+A placeholder image or color-coded preview area.
+
+•
+A "View Template" link that opens a modal or navigates to a demo page.
+
+
+
+•
+Templates: Emergency Hero, Local Authority, Fleet Specialist, Modern Minimalist, Service Multiplier.
+
+
+
+5.
+HOW IT WORKS
+
+•
+Heading: "Your Path to a Professional Website"
+
+•
+Four steps in a horizontal timeline:
+
+•
+Step 1: "Book a Demo" → Schedule a 15-min call to discuss your business.
+
+•
+Step 2: "Choose a Template" → Pick the design that matches your brand.
+
+•
+Step 3: "We Customize" → We add your branding, photos, and copy.
+
+•
+Step 4: "Go Live" → Your website launches in 7 days. You start getting calls.
+
+
+
+
+
+6.
+PRICING
+
+•
+Heading: "Simple, Transparent Pricing"
+
+•
+Three pricing tiers in cards:
+
+•
+Starter ($49/mo): Basic template, mobile-responsive, 1 year included support.
+
+•
+Professional ($79/mo): All Starter features + custom domain, Google Business integration, monthly updates.
+
+•
+Premium ($99/mo): All Professional features + priority support, quarterly strategy calls, advanced analytics.
+
+
+
+•
+Note below: "All plans include 24/7 uptime, SSL security, and Google SEO optimization."
+
+
+
+7.
+TESTIMONIALS / SOCIAL PROOF
+
+•
+Heading: "Trusted by Towing Companies Across the Country"
+
+•
+Display 3 testimonial cards with placeholder quotes, 5-star ratings, and customer names/cities.
+
+•
+Example: "TowSite built our website in a week. We went from 2 calls a day to 8. Highly recommend." — Mike R., Austin TX.
+
+
+
+8.
+FAQ
+
+•
+Heading: "Frequently Asked Questions"
+
+•
+5-6 accordion items covering: "Do you offer custom designs?", "Can I cancel anytime?", "What if I need changes?", "Do you handle SEO?", "Is there a setup fee?", "Can you integrate with my dispatch software?"
+
+
+
+9.
+FINAL CTA
+
+•
+Heading: "Ready to Get Your Professional Towing Website?"
+
+•
+Subheading: "Join 50+ towing companies already using TowSite."
+
+•
+Two buttons: "Get Your Free Mockup" (teal, large) and "Schedule a Demo" (outlined).
+
+•
+Below: "No credit card required. Takes 5 minutes."
+
+
+
+10.
+FOOTER
+
+•
+Logo, tagline, and quick links (Features, Templates, Pricing, FAQ, Contact).
+
+•
+Contact info: Email, phone, social media placeholders.
+
+•
+Copyright and privacy policy links.
+
+
+
+TECHNICAL REQUIREMENTS
+
+•
+Fully responsive, mobile-first.
+
+•
+All CTAs ("Get Your Free Mockup", "Schedule a Demo", "View Template") should link to placeholder URLs or open contact forms.
+
+•
+SEO meta tags: title ("TowSite | Professional Towing Websites Built Fast"), meta description ("Get a custom, high-converting towing website in 7 days. Choose from 5 professional templates. $49/month."), Open Graph tags.
+
+•
+Smooth scroll for navigation links.
+
+•
+Sticky top navigation on desktop; on mobile, a sticky bottom bar with "Get Started" button.
+
+•
+Modern CSS (Flexbox/Grid). Tailwind CSS acceptable.
+
+•
+Target 90+ Lighthouse Performance score.
+
+•
+All placeholder images should use solid color blocks or subtle gradients with comments for photo insertion.
+
