@@ -649,8 +649,8 @@ export default function Landing() {
           <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-slate-400 text-sm">© {new Date().getFullYear()} TowSite. All rights reserved.</p>
             <div className="flex gap-4">
-              <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors text-sm">Privacy Policy</a>
-              <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors text-sm">Terms of Service</a>
+              <Link href="/privacy" className="text-slate-400 hover:text-slate-900 transition-colors text-sm" data-testid="link-privacy">Privacy Policy</Link>
+              <Link href="/terms" className="text-slate-400 hover:text-slate-900 transition-colors text-sm" data-testid="link-terms">Terms of Service</Link>
             </div>
           </div>
         </div>
