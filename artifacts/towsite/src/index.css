@@ -69,42 +69,42 @@
 }
 
 :root {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(15, 23, 42, .10);
+  --badge-outline: rgba(15, 23, 42, .05);
 
   --opaque-button-border-intensity: -8;
 
-  --elevate-1: rgba(255,255,255, .03);
-  --elevate-2: rgba(255,255,255, .08);
+  --elevate-1: rgba(15, 23, 42, .03);
+  --elevate-2: rgba(15, 23, 42, .08);
 
-  --background: 240 28% 14%; /* #1a1a2e charcoal */
-  --foreground: 0 0% 100%; /* white */
-  --border: 240 28% 24%;
-  --card: 210 20% 96%; /* light gray */
-  --card-foreground: 240 28% 14%;
-  --card-border: 210 20% 90%;
-  
-  --popover: 240 28% 14%;
-  --popover-foreground: 0 0% 100%;
-  --popover-border: 240 28% 24%;
-  
-  --primary: 175 84% 32%; /* #0d9488 teal */
+  --background: 0 0% 100%; /* white */
+  --foreground: 222 47% 11%; /* slate-900 */
+  --border: 214 32% 91%; /* slate-200 */
+  --card: 0 0% 100%; /* white */
+  --card-foreground: 222 47% 11%;
+  --card-border: 214 32% 91%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --popover-border: 214 32% 91%;
+
+  --primary: 217 91% 45%; /* #1d4ed8 work-shirt blue */
   --primary-foreground: 0 0% 100%;
-  
-  --secondary: 38 92% 50%; /* #f59e0b gold */
-  --secondary-foreground: 0 0% 100%;
-  
-  --muted: 240 28% 20%;
-  --muted-foreground: 240 10% 70%;
-  
-  --accent: 175 84% 32%;
+
+  --secondary: 38 92% 50%; /* #f59e0b safety amber */
+  --secondary-foreground: 222 47% 11%;
+
+  --muted: 210 40% 96%; /* slate-100 */
+  --muted-foreground: 215 16% 47%; /* slate-500 */
+
+  --accent: 217 91% 45%;
   --accent-foreground: 0 0% 100%;
-  
+
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  
-  --input: 240 28% 24%;
-  --ring: 175 84% 32%;
+
+  --input: 214 32% 91%;
+  --ring: 217 91% 45%;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-heading: 'Poppins', sans-serif;

@@ -45,26 +45,26 @@ export default function Landing() {
       {/* Navigation */}
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/95 backdrop-blur-md border-b border-white/10 py-3" : "bg-transparent py-5"
+          isScrolled ? "bg-background/95 backdrop-blur-md border-b border-slate-200 py-3" : "bg-transparent py-5"
         }`}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded bg-primary flex items-center justify-center font-bold text-white font-heading text-xl">T</div>
-            <span className="font-heading font-bold text-xl tracking-tight text-white">TowSite</span>
+            <span className="font-heading font-bold text-xl tracking-tight text-slate-900">TowSite</span>
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollTo("features")} className="text-sm font-medium text-white/80 hover:text-primary transition-colors" data-testid="link-features">Features</button>
-            <button onClick={() => scrollTo("templates")} className="text-sm font-medium text-white/80 hover:text-primary transition-colors" data-testid="link-templates">Templates</button>
-            <button onClick={() => scrollTo("pricing")} className="text-sm font-medium text-white/80 hover:text-primary transition-colors" data-testid="link-pricing">Pricing</button>
-            <button onClick={() => scrollTo("faq")} className="text-sm font-medium text-white/80 hover:text-primary transition-colors" data-testid="link-faq">FAQ</button>
-            <Button onClick={() => scrollTo("contact")} className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-md shadow-[0_0_20px_rgba(13,148,136,0.3)] hover:shadow-[0_0_25px_rgba(13,148,136,0.5)] transition-all" data-testid="button-nav-cta">
+            <button onClick={() => scrollTo("features")} className="text-sm font-medium text-slate-700 hover:text-primary transition-colors" data-testid="link-features">Features</button>
+            <button onClick={() => scrollTo("templates")} className="text-sm font-medium text-slate-700 hover:text-primary transition-colors" data-testid="link-templates">Templates</button>
+            <button onClick={() => scrollTo("pricing")} className="text-sm font-medium text-slate-700 hover:text-primary transition-colors" data-testid="link-pricing">Pricing</button>
+            <button onClick={() => scrollTo("faq")} className="text-sm font-medium text-slate-700 hover:text-primary transition-colors" data-testid="link-faq">FAQ</button>
+            <Button onClick={() => scrollTo("contact")} className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-md shadow-[0_0_20px_rgba(29,78,216,0.25)] hover:shadow-[0_0_25px_rgba(29,78,216,0.4)] transition-all" data-testid="button-nav-cta">
               Get Started
             </Button>
           </nav>
 
-          <Button variant="ghost" size="icon" className="md:hidden text-white hover:bg-white/10" data-testid="button-mobile-menu">
+          <Button variant="ghost" size="icon" className="md:hidden text-slate-900 hover:bg-slate-100" data-testid="button-mobile-menu">
             <Menu className="h-6 w-6" />
           </Button>
         </div>
@@ -72,7 +72,7 @@ export default function Landing() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden flex flex-col items-center text-center justify-center min-h-[90vh]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background -z-10"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-white to-white -z-10"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div 
             initial="hidden"
@@ -85,20 +85,20 @@ export default function Landing() {
               Accepting new clients for this month
             </motion.div>
             
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold font-heading text-white leading-[1.1] tracking-tight">
+            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold font-heading text-slate-900 leading-[1.1] tracking-tight">
               Professional Towing Websites. <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-200">Built Fast.</span> Designed to Convert.
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Built Fast.</span> Designed to Convert.
             </motion.h1>
             
-            <motion.p variants={fadeInUp} className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+            <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Get a custom, high-converting website for your towing business in days, not months. No coding. No long contracts. Start dominating local search today.
             </motion.p>
             
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-semibold bg-primary hover:bg-primary/90 shadow-[0_0_30px_rgba(13,148,136,0.3)] hover:shadow-[0_0_40px_rgba(13,148,136,0.5)] transition-all rounded-md" onClick={() => scrollTo("contact")} data-testid="button-hero-primary">
+              <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-semibold bg-primary hover:bg-primary/90 shadow-[0_0_30px_rgba(29,78,216,0.25)] hover:shadow-[0_0_40px_rgba(29,78,216,0.4)] transition-all rounded-md" onClick={() => scrollTo("contact")} data-testid="button-hero-primary">
                 Get Your Free Mockup <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-14 px-8 text-lg font-semibold border-white/20 hover:bg-white/5 text-white rounded-md" onClick={() => scrollTo("templates")} data-testid="button-hero-secondary">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto h-14 px-8 text-lg font-semibold border-slate-300 hover:bg-slate-100 text-slate-900 rounded-md" onClick={() => scrollTo("templates")} data-testid="button-hero-secondary">
                 See Templates
               </Button>
             </motion.div>
@@ -106,7 +106,7 @@ export default function Landing() {
         </div>
         
         {/* Decorative elements */}
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
       </section>
 
       {/* The Problem Section */}
@@ -119,8 +119,8 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">Most Towing Companies Have Terrible Websites</h2>
-            <p className="text-lg text-white/60">And it's costing you high-paying jobs every single day. When a driver is stranded on the side of the road, they don't have time to navigate a broken site.</p>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Most Towing Companies Have Terrible Websites</h2>
+            <p className="text-lg text-slate-600">And it's costing you high-paying jobs every single day. When a driver is stranded on the side of the road, they don't have time to navigate a broken site.</p>
           </motion.div>
 
           <motion.div 
@@ -176,7 +176,7 @@ export default function Landing() {
       </section>
 
       {/* The Solution Section */}
-      <section id="features" className="py-24 bg-[#1f1f38] relative border-y border-white/5">
+      <section id="features" className="py-24 bg-slate-50 relative border-y border-slate-200">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <motion.div 
@@ -186,10 +186,10 @@ export default function Landing() {
               variants={staggerContainer}
               className="md:w-1/2 space-y-6"
             >
-              <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold font-heading text-white leading-tight">
+              <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold font-heading text-slate-900 leading-tight">
                 TowSite: Done-For-You Towing Websites
               </motion.h2>
-              <motion.p variants={fadeInUp} className="text-lg text-white/70">
+              <motion.p variants={fadeInUp} className="text-lg text-slate-600">
                 Stop stressing over tech. We build, host, and maintain a high-performance website for your towing business. Delivered in just 7 days, optimized to make your phone ring.
               </motion.p>
               
@@ -199,8 +199,8 @@ export default function Landing() {
                     <CheckCircle2 className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">5 Professional Templates</h4>
-                    <p className="text-white/60 text-sm">Tested and proven to convert stranded drivers into callers.</p>
+                    <h4 className="text-slate-900 font-semibold mb-1">5 Professional Templates</h4>
+                    <p className="text-slate-600 text-sm">Tested and proven to convert stranded drivers into callers.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -208,8 +208,8 @@ export default function Landing() {
                     <CheckCircle2 className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">Mobile-First & SEO-Ready</h4>
-                    <p className="text-white/60 text-sm">Blazing fast load times and optimized for local "towing near me" searches.</p>
+                    <h4 className="text-slate-900 font-semibold mb-1">Mobile-First & SEO-Ready</h4>
+                    <p className="text-slate-600 text-sm">Blazing fast load times and optimized for local "towing near me" searches.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -217,8 +217,8 @@ export default function Landing() {
                     <CheckCircle2 className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">Recurring Revenue Model ($49-$99/month)</h4>
-                    <p className="text-white/60 text-sm">No huge upfront costs. We handle the hosting, security, and updates.</p>
+                    <h4 className="text-slate-900 font-semibold mb-1">Recurring Revenue Model ($49-$99/month)</h4>
+                    <p className="text-slate-600 text-sm">No huge upfront costs. We handle the hosting, security, and updates.</p>
                   </div>
                 </div>
               </motion.div>
@@ -231,20 +231,20 @@ export default function Landing() {
               transition={{ duration: 0.8 }}
               className="md:w-1/2 relative"
             >
-              <div className="aspect-[4/3] rounded-xl overflow-hidden border border-white/10 shadow-2xl relative bg-background flex items-center justify-center">
+              <div className="aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 shadow-2xl relative bg-white flex items-center justify-center">
                  {/* Abstract UI representation */}
-                 <div className="absolute inset-0 bg-gradient-to-br from-background to-[#1f1f38] p-6 flex flex-col">
-                    <div className="h-10 w-full flex items-center justify-between border-b border-white/10 pb-4">
-                      <div className="w-24 h-6 bg-white/10 rounded"></div>
+                 <div className="absolute inset-0 bg-gradient-to-br from-white to-slate-100 p-6 flex flex-col">
+                    <div className="h-10 w-full flex items-center justify-between border-b border-slate-200 pb-4">
+                      <div className="w-24 h-6 bg-slate-200 rounded"></div>
                       <div className="flex gap-2">
-                        <div className="w-8 h-8 rounded bg-white/5"></div>
+                        <div className="w-8 h-8 rounded bg-slate-100"></div>
                         <div className="w-8 h-8 rounded bg-primary/80"></div>
                       </div>
                     </div>
                     <div className="flex-1 mt-6 flex flex-col gap-4">
-                      <div className="w-3/4 h-12 bg-white/10 rounded"></div>
-                      <div className="w-1/2 h-6 bg-white/5 rounded"></div>
-                      <div className="w-40 h-10 bg-primary/80 rounded mt-4"></div>
+                      <div className="w-3/4 h-12 bg-slate-200 rounded"></div>
+                      <div className="w-1/2 h-6 bg-slate-100 rounded"></div>
+                      <div className="w-40 h-10 bg-primary rounded mt-4"></div>
                     </div>
                  </div>
               </div>
@@ -272,17 +272,17 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">Choose Your Template</h2>
-            <p className="text-lg text-white/60">Every template is optimized for conversion, fully responsive, and customized with your branding, photos, and services.</p>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Choose Your Template</h2>
+            <p className="text-lg text-slate-600">Every template is optimized for conversion, fully responsive, and customized with your branding, photos, and services.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Emergency Hero", desc: "Dark, bold, and urgent. Focuses entirely on emergency dispatch and immediate action.", colors: "from-slate-900 to-red-900/40" },
-              { name: "Local Authority", desc: "Clean and established. Perfect for building trust in your community as the go-to tow service.", colors: "from-blue-900/40 to-slate-900" },
-              { name: "Fleet Specialist", desc: "Corporate and professional. Ideal for companies with large fleets handling commercial accounts.", colors: "from-slate-800 to-slate-900" },
-              { name: "Modern Minimalist", desc: "Premium and sleek. Removes all clutter to get customers to call you as fast as possible.", colors: "from-zinc-800 to-zinc-900" },
-              { name: "Service Multiplier", desc: "Service-focused design. Best if you offer towing, recovery, lockouts, and roadside assistance.", colors: "from-teal-900/40 to-slate-900" }
+              { name: "Emergency Hero", desc: "Dark, bold, and urgent. Focuses entirely on emergency dispatch and immediate action.", colors: "from-red-600 to-rose-700" },
+              { name: "Local Authority", desc: "Clean and established. Perfect for building trust in your community as the go-to tow service.", colors: "from-blue-600 to-blue-900" },
+              { name: "Fleet Specialist", desc: "Corporate and professional. Ideal for companies with large fleets handling commercial accounts.", colors: "from-slate-700 to-slate-900" },
+              { name: "Modern Minimalist", desc: "Premium and sleek. Removes all clutter to get customers to call you as fast as possible.", colors: "from-zinc-700 to-zinc-900" },
+              { name: "Service Multiplier", desc: "Service-focused design. Best if you offer towing, recovery, lockouts, and roadside assistance.", colors: "from-amber-500 to-orange-700" }
             ].map((tpl, i) => (
               <motion.div 
                 key={i}
@@ -293,7 +293,7 @@ export default function Landing() {
               >
                 <Card className="bg-card border-none shadow-lg overflow-hidden group h-full flex flex-col">
                   <div className={`h-40 w-full bg-gradient-to-br ${tpl.colors} relative flex items-center justify-center p-6 border-b border-card-border`}>
-                    <div className="w-full h-full border-2 border-white/10 rounded-md bg-background/50 backdrop-blur-sm p-4 flex flex-col gap-2 relative overflow-hidden">
+                    <div className="w-full h-full border-2 border-slate-200 rounded-md bg-background/50 backdrop-blur-sm p-4 flex flex-col gap-2 relative overflow-hidden">
                        <div className="w-1/3 h-3 bg-white/20 rounded"></div>
                        <div className="w-2/3 h-6 bg-white/40 rounded mt-2"></div>
                        <div className="w-1/4 h-8 bg-primary rounded mt-auto"></div>
@@ -315,14 +315,14 @@ export default function Landing() {
                           View Template
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="bg-background text-foreground border-white/10">
+                      <DialogContent className="bg-background text-foreground border-slate-200">
                         <DialogHeader>
-                          <DialogTitle className="text-white">{tpl.name} Preview</DialogTitle>
-                          <DialogDescription className="text-white/60">
+                          <DialogTitle className="text-slate-900">{tpl.name} Preview</DialogTitle>
+                          <DialogDescription className="text-slate-600">
                             This is a wireframe preview. All templates are customized with your actual brand colors, logo, and copy.
                           </DialogDescription>
                         </DialogHeader>
-                        <div className="aspect-video w-full bg-card rounded-md border border-white/5 flex items-center justify-center text-card-foreground/50">
+                        <div className="aspect-video w-full bg-card rounded-md border border-slate-200 flex items-center justify-center text-card-foreground/50">
                           Template Sandbox Preview
                         </div>
                       </DialogContent>
@@ -336,7 +336,7 @@ export default function Landing() {
       </section>
 
       {/* How it works */}
-      <section className="py-24 bg-[#1a1a2e] relative overflow-hidden">
+      <section className="py-24 bg-slate-100 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div 
@@ -346,12 +346,12 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">Your Path to a Professional Website</h2>
-            <p className="text-lg text-white/60">We do the heavy lifting so you can focus on running your business.</p>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Your Path to a Professional Website</h2>
+            <p className="text-lg text-slate-600">We do the heavy lifting so you can focus on running your business.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-white/10 -z-10"></div>
+            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-300 -z-10"></div>
             
             {[
               { step: "01", title: "Book a Demo", desc: "Quick 15-minute call to learn about your business and needs.", icon: PhoneOff },
@@ -367,11 +367,11 @@ export default function Landing() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="flex flex-col items-center text-center relative"
               >
-                <div className="w-24 h-24 rounded-full bg-background border-4 border-primary flex items-center justify-center text-3xl font-bold font-heading text-white mb-6 shadow-[0_0_20px_rgba(13,148,136,0.2)]">
+                <div className="w-24 h-24 rounded-full bg-white border-4 border-primary flex items-center justify-center text-3xl font-bold font-heading text-primary mb-6 shadow-[0_0_20px_rgba(29,78,216,0.2)]">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-white/60 text-sm max-w-[200px]">{item.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-slate-600 text-sm max-w-[200px]">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -388,8 +388,8 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">Simple, Transparent Pricing</h2>
-            <p className="text-lg text-white/60">No massive upfront builds. Just a simple monthly fee that covers everything. All plans include 24/7 uptime, SSL security, and Google SEO optimization.</p>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Simple, Transparent Pricing</h2>
+            <p className="text-lg text-slate-600">No massive upfront builds. Just a simple monthly fee that covers everything. All plans include 24/7 uptime, SSL security, and Google SEO optimization.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
@@ -431,17 +431,17 @@ export default function Landing() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="bg-[#1f1f38] border border-primary relative shadow-[0_0_30px_rgba(13,148,136,0.15)] transform md:-translate-y-4">
+              <Card className="bg-slate-50 border border-primary relative shadow-[0_0_30px_rgba(29,78,216,0.15)] transform md:-translate-y-4">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                   Most Popular
                 </div>
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-heading text-white">Professional</CardTitle>
-                  <div className="text-4xl font-bold mt-2 text-white">$79<span className="text-xl text-white/50 font-normal">/mo</span></div>
-                  <CardDescription className="text-white/60 mt-2">For growing towing fleets.</CardDescription>
+                  <CardTitle className="text-xl font-heading text-slate-900">Professional</CardTitle>
+                  <div className="text-4xl font-bold mt-2 text-slate-900">$79<span className="text-xl text-slate-500 font-normal">/mo</span></div>
+                  <CardDescription className="text-slate-600 mt-2">For growing towing fleets.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 text-white/80">
+                  <ul className="space-y-3 text-slate-700">
                     {["5 Page Website", "All Templates", "Advanced Local SEO", "Lead Capture Forms", "Google Business Profile Sync", "Monthly Reporting"].map((feat, i) => (
                       <li key={i} className="flex items-center gap-3 text-sm">
                         <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
@@ -493,7 +493,7 @@ export default function Landing() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-[#1f1f38] border-y border-white/5">
+      <section className="py-24 bg-slate-50 border-y border-slate-200">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div 
             initial="hidden"
@@ -502,7 +502,7 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">Trusted by Towing Companies Across the Country</h2>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Trusted by Towing Companies Across the Country</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -518,19 +518,19 @@ export default function Landing() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <Card className="bg-background border border-white/5 h-full">
+                <Card className="bg-background border border-slate-200 h-full">
                   <CardContent className="pt-6">
                     <div className="flex gap-1 mb-4">
                       {[1,2,3,4,5].map(s => <Star key={s} className="h-4 w-4 fill-secondary text-secondary" />)}
                     </div>
-                    <p className="text-white/80 italic mb-6">"{t.text}"</p>
+                    <p className="text-slate-700 italic mb-6">"{t.text}"</p>
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
                         {t.name.charAt(0)}
                       </div>
                       <div>
-                        <p className="text-white font-bold text-sm">{t.name}</p>
-                        <p className="text-white/50 text-xs flex items-center gap-1"><MapPin className="h-3 w-3"/> {t.loc}</p>
+                        <p className="text-slate-900 font-bold text-sm">{t.name}</p>
+                        <p className="text-slate-500 text-xs flex items-center gap-1"><MapPin className="h-3 w-3"/> {t.loc}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -551,7 +551,7 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Frequently Asked Questions</h2>
           </motion.div>
 
           <Accordion type="single" collapsible className="w-full space-y-4">
@@ -563,9 +563,9 @@ export default function Landing() {
               { q: "Is there a setup fee?", a: "No! We waive all setup and design fees. You just pay the flat monthly rate starting the day your site goes live." },
               { q: "Can you integrate with my dispatch software?", a: "Yes, we can add tracking numbers, embed web booking widgets, and connect to most modern dispatch and CRM software (available on Premium plan)." }
             ].map((faq, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border-white/10 bg-[#1f1f38] px-6 rounded-lg data-[state=open]:border-primary/50 transition-colors">
-                <AccordionTrigger className="text-white hover:text-primary transition-colors text-left py-4">{faq.q}</AccordionTrigger>
-                <AccordionContent className="text-white/60 pb-4 leading-relaxed">
+              <AccordionItem key={i} value={`item-${i}`} className="border-slate-200 bg-slate-50 px-6 rounded-lg data-[state=open]:border-primary/50 transition-colors">
+                <AccordionTrigger className="text-slate-900 hover:text-primary transition-colors text-left py-4">{faq.q}</AccordionTrigger>
+                <AccordionContent className="text-slate-600 pb-4 leading-relaxed">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
@@ -576,15 +576,15 @@ export default function Landing() {
 
       {/* Final CTA */}
       <section id="contact" className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/10"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+        <div className="absolute inset-0 bg-primary/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent"></div>
         
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-4xl">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold font-heading text-white mb-6"
+            className="text-4xl md:text-6xl font-bold font-heading text-slate-900 mb-6"
           >
             Ready to Get Your Professional Towing Website?
           </motion.h2>
@@ -593,7 +593,7 @@ export default function Landing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-white/70 mb-10"
+            className="text-xl text-slate-600 mb-10"
           >
             Join 50+ towing companies already using TowSite to generate more calls and dominate their local market.
           </motion.p>
@@ -608,56 +608,56 @@ export default function Landing() {
             <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-semibold bg-primary hover:bg-primary/90 text-white rounded-md" asChild data-testid="button-final-cta">
               <a href="mailto:hello@towsite.com">Email hello@towsite.com</a>
             </Button>
-            <p className="text-white/50 text-sm mt-4 sm:mt-0 sm:ml-4">No credit card required. Takes 5 minutes.</p>
+            <p className="text-slate-500 text-sm mt-4 sm:mt-0 sm:ml-4">No credit card required. Takes 5 minutes.</p>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-background pt-16 pb-8 border-t border-white/5">
+      <footer className="bg-background pt-16 pb-8 border-t border-slate-200">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-6 rounded bg-primary flex items-center justify-center font-bold text-white font-heading text-sm">T</div>
-                <span className="font-heading font-bold text-lg tracking-tight text-white">TowSite</span>
+                <span className="font-heading font-bold text-lg tracking-tight text-slate-900">TowSite</span>
               </div>
-              <p className="text-white/50 max-w-sm mb-6">
+              <p className="text-slate-500 max-w-sm mb-6">
                 Done-for-you websites for towing companies. We build it, host it, and optimize it so you can focus on the road.
               </p>
             </div>
             
             <div>
-              <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+              <h4 className="text-slate-900 font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                <li><button onClick={() => scrollTo("features")} className="text-white/50 hover:text-primary transition-colors text-sm">Features</button></li>
-                <li><button onClick={() => scrollTo("templates")} className="text-white/50 hover:text-primary transition-colors text-sm">Templates</button></li>
-                <li><button onClick={() => scrollTo("pricing")} className="text-white/50 hover:text-primary transition-colors text-sm">Pricing</button></li>
-                <li><button onClick={() => scrollTo("faq")} className="text-white/50 hover:text-primary transition-colors text-sm">FAQ</button></li>
+                <li><button onClick={() => scrollTo("features")} className="text-slate-500 hover:text-primary transition-colors text-sm">Features</button></li>
+                <li><button onClick={() => scrollTo("templates")} className="text-slate-500 hover:text-primary transition-colors text-sm">Templates</button></li>
+                <li><button onClick={() => scrollTo("pricing")} className="text-slate-500 hover:text-primary transition-colors text-sm">Pricing</button></li>
+                <li><button onClick={() => scrollTo("faq")} className="text-slate-500 hover:text-primary transition-colors text-sm">FAQ</button></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="text-white font-semibold mb-4">Contact</h4>
+              <h4 className="text-slate-900 font-semibold mb-4">Contact</h4>
               <ul className="space-y-2">
-                <li><a href="mailto:hello@towsite.com" className="text-white/50 hover:text-primary transition-colors text-sm">hello@towsite.com</a></li>
-                <li><a href="tel:18005550199" className="text-white/50 hover:text-primary transition-colors text-sm">1-800-555-0199</a></li>
+                <li><a href="mailto:hello@towsite.com" className="text-slate-500 hover:text-primary transition-colors text-sm">hello@towsite.com</a></li>
+                <li><a href="tel:18005550199" className="text-slate-500 hover:text-primary transition-colors text-sm">1-800-555-0199</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-white/30 text-sm">© {new Date().getFullYear()} TowSite. All rights reserved.</p>
+          <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-slate-400 text-sm">© {new Date().getFullYear()} TowSite. All rights reserved.</p>
             <div className="flex gap-4">
-              <a href="#" className="text-white/30 hover:text-white transition-colors text-sm">Privacy Policy</a>
-              <a href="#" className="text-white/30 hover:text-white transition-colors text-sm">Terms of Service</a>
+              <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors text-sm">Privacy Policy</a>
+              <a href="#" className="text-slate-400 hover:text-slate-900 transition-colors text-sm">Terms of Service</a>
             </div>
           </div>
         </div>
       </footer>
 
       {/* Mobile Sticky CTA */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full p-4 bg-background/95 backdrop-blur-md border-t border-white/10 z-50">
+      <div className="md:hidden fixed bottom-0 left-0 w-full p-4 bg-background/95 backdrop-blur-md border-t border-slate-200 z-50">
         <Button className="w-full bg-primary hover:bg-primary/90 text-white font-semibold shadow-lg" onClick={() => scrollTo("contact")}>
           Get Started Now
         </Button>
