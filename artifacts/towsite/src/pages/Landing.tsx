@@ -40,7 +40,7 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-background text-foreground font-sans selection:bg-primary/30 selection:text-primary">
+    <div className="min-h-[100dvh] text-foreground font-sans selection:bg-primary/30 selection:text-primary">
       {/* Navigation */}
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -162,7 +162,7 @@ export default function Landing() {
       </section>
 
       {/* The Problem Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="py-24 bg-transparent relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #0f172a 1px, transparent 1px)", backgroundSize: "20px 20px" }}></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div 
@@ -321,7 +321,7 @@ export default function Landing() {
       </section>
 
       {/* Templates Section */}
-      <section id="templates" className="py-24 bg-background relative overflow-hidden">
+      <section id="templates" className="py-24 bg-transparent relative overflow-hidden">
         <div className="absolute top-1/4 -left-32 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -437,7 +437,7 @@ export default function Landing() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 bg-background">
+      <section id="pricing" className="py-24 bg-transparent">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div 
             initial="hidden"
@@ -602,7 +602,7 @@ export default function Landing() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-24 bg-background">
+      <section id="faq" className="py-24 bg-transparent">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl">
           <motion.div 
             initial="hidden"
