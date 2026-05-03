@@ -74,6 +74,12 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden flex flex-col items-center text-center justify-center min-h-[90vh]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-white to-white -z-10"></div>
+        {/* Decorative blurred orbs */}
+        <div className="absolute top-32 -left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDuration: "6s" }}></div>
+        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-secondary/15 rounded-full blur-3xl -z-10 animate-pulse" style={{ animationDuration: "8s" }}></div>
+        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-blue-300/30 rounded-full blur-2xl -z-10"></div>
+        {/* Subtle dot pattern */}
+        <div className="absolute inset-0 -z-10 opacity-[0.15]" style={{ backgroundImage: "radial-gradient(circle, #1d4ed8 1px, transparent 1px)", backgroundSize: "32px 32px" }}></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div 
             initial="hidden"
@@ -103,6 +109,25 @@ export default function Landing() {
                 See Templates
               </Button>
             </motion.div>
+
+            {/* Trust row */}
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 pt-6 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-2">
+                  {["#1d4ed8", "#f59e0b", "#0f172a", "#475569"].map((c, i) => (
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white shadow-sm" style={{ background: c }}></div>
+                  ))}
+                </div>
+                <span className="text-slate-700 font-medium">50+ towing companies</span>
+              </div>
+              <div className="hidden sm:block w-px h-6 bg-slate-300"></div>
+              <div className="flex items-center gap-2">
+                <div className="flex gap-0.5">
+                  {[1,2,3,4,5].map(s => <Star key={s} className="h-4 w-4 fill-secondary text-secondary" />)}
+                </div>
+                <span className="text-slate-700 font-medium">4.9/5 average rating</span>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
         
@@ -110,9 +135,38 @@ export default function Landing() {
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
       </section>
 
+      {/* Stats Band */}
+      <section className="relative py-12 md:py-16 bg-gradient-to-r from-primary via-blue-600 to-blue-700 overflow-hidden">
+        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }}></div>
+        <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { num: "50+", label: "Towing Companies" },
+              { num: "7", label: "Day Turnaround" },
+              { num: "+340%", label: "Avg. Call Volume Lift" },
+              { num: "24/7", label: "Hosting & Support" }
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <div className="text-4xl md:text-5xl font-bold font-heading text-white mb-2 tracking-tight">{stat.num}</div>
+                <div className="text-sm md:text-base text-blue-100 font-medium uppercase tracking-wider">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* The Problem Section */}
-      <section className="py-24 bg-background relative">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle, #0f172a 1px, transparent 1px)", backgroundSize: "20px 20px" }}></div>
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -120,6 +174,7 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-destructive bg-destructive/10 px-3 py-1.5 rounded-full mb-4">The Problem</span>
             <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Most Towing Companies Have Terrible Websites</h2>
             <p className="text-lg text-slate-600">And it's costing you high-paying jobs every single day. When a driver is stranded on the side of the road, they don't have time to navigate a broken site.</p>
           </motion.div>
@@ -132,7 +187,8 @@ export default function Landing() {
             className="grid md:grid-cols-3 gap-8"
           >
             <motion.div variants={fadeInUp}>
-              <Card className="bg-card border-none shadow-lg h-full">
+              <Card className="bg-card border-none shadow-lg h-full relative overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-destructive to-rose-400"></div>
                 <CardHeader>
                   <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center mb-4">
                     <MonitorX className="h-6 w-6 text-destructive" />
@@ -146,7 +202,8 @@ export default function Landing() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Card className="bg-card border-none shadow-lg h-full">
+              <Card className="bg-card border-none shadow-lg h-full relative overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-destructive to-rose-400"></div>
                 <CardHeader>
                   <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center mb-4">
                     <PhoneOff className="h-6 w-6 text-destructive" />
@@ -160,7 +217,8 @@ export default function Landing() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Card className="bg-card border-none shadow-lg h-full">
+              <Card className="bg-card border-none shadow-lg h-full relative overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-destructive to-rose-400"></div>
                 <CardHeader>
                   <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center mb-4">
                     <TrendingDown className="h-6 w-6 text-destructive" />
@@ -187,6 +245,7 @@ export default function Landing() {
               variants={staggerContainer}
               className="md:w-1/2 space-y-6"
             >
+              <motion.span variants={fadeInUp} className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full">The Solution</motion.span>
               <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-bold font-heading text-slate-900 leading-tight">
                 TowSite: Done-For-You Towing Websites
               </motion.h2>
@@ -264,8 +323,10 @@ export default function Landing() {
       </section>
 
       {/* Templates Section */}
-      <section id="templates" className="py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+      <section id="templates" className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute top-1/4 -left-32 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"></div>
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -273,6 +334,7 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">Templates</span>
             <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Choose Your Template</h2>
             <p className="text-lg text-slate-600">Every template is optimized for conversion, fully responsive, and customized with your branding, photos, and services.</p>
           </motion.div>
@@ -345,6 +407,7 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">How It Works</span>
             <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Your Path to a Professional Website</h2>
             <p className="text-lg text-slate-600">We do the heavy lifting so you can focus on running your business.</p>
           </motion.div>
@@ -387,6 +450,7 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">Pricing</span>
             <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Simple, Transparent Pricing</h2>
             <p className="text-lg text-slate-600">No massive upfront builds. Just a simple monthly fee that covers everything. All plans include 24/7 uptime, SSL security, and Google SEO optimization.</p>
           </motion.div>
@@ -501,6 +565,7 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center max-w-3xl mx-auto mb-16"
           >
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-secondary bg-secondary/10 px-3 py-1.5 rounded-full mb-4">Reviews</span>
             <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Trusted by Towing Companies Across the Country</h2>
           </motion.div>
 
@@ -550,6 +615,7 @@ export default function Landing() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">FAQ</span>
             <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Frequently Asked Questions</h2>
           </motion.div>
 
@@ -574,11 +640,23 @@ export default function Landing() {
       </section>
 
       {/* Final CTA */}
-      <section id="contact" className="py-32 relative overflow-hidden">
+      <section id="contact" className="py-32 relative overflow-hidden bg-slate-50">
         <div className="absolute inset-0 bg-primary/5"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent"></div>
-        
+        {/* Decorative orbs */}
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle, #1d4ed8 1px, transparent 1px)", backgroundSize: "32px 32px" }}></div>
+
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-4xl">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-6"
+          >
+            Get Started Today
+          </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
