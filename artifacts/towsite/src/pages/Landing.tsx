@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import TemplateSandboxPreview from "@/components/TemplateSandboxPreview";
 import { CheckCircle2, ChevronRight, Menu, PhoneOff, MonitorX, TrendingDown, Clock, ShieldCheck, Search, Star, MapPin } from "lucide-react";
 
 export default function Landing() {
@@ -315,16 +316,14 @@ export default function Landing() {
                           View Template
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="bg-background text-foreground border-slate-200">
+                      <DialogContent className="bg-background text-foreground border-slate-200 max-w-2xl">
                         <DialogHeader>
                           <DialogTitle className="text-slate-900">{tpl.name} Preview</DialogTitle>
                           <DialogDescription className="text-slate-600">
                             This is a wireframe preview. All templates are customized with your actual brand colors, logo, and copy.
                           </DialogDescription>
                         </DialogHeader>
-                        <div className="aspect-video w-full bg-card rounded-md border border-slate-200 flex items-center justify-center text-card-foreground/50">
-                          Template Sandbox Preview
-                        </div>
+                        <TemplateSandboxPreview template={tpl.name} />
                       </DialogContent>
                     </Dialog>
                   </CardFooter>
