@@ -1,13 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import type { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle2, ChevronRight, Menu, PhoneOff, MonitorX, TrendingDown, Clock, ShieldCheck, Search, Star, MapPin } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { useSubmitContact } from "@workspace/api-client-react";
+import { SubmitContactBody } from "@workspace/api-zod";
+import { CheckCircle2, ChevronRight, Menu, PhoneOff, MonitorX, TrendingDown, Clock, ShieldCheck, Search, Star, MapPin, Loader2, Mail } from "lucide-react";
+
+type ContactFormValues = z.infer<typeof SubmitContactBody>;
 
 export default function Landing() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const { toast } = useToast();
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(SubmitContactBody),
+    defaultValues: { name: "", email: "", company: "", phone: "", message: "" },
+  });
+  const submitContact = useSubmitContact({
+    mutation: {
+      onSuccess: () => {
+        setSubmitted(true);
+        form.reset();
+        toast({ title: "Message sent!", description: "We'll get back to you within one business day." });
+      },
+      onError: (err: unknown) => {
+        const message = err instanceof Error ? err.message : "Please try again in a moment.";
+        toast({ title: "Couldn't send message", description: message, variant: "destructive" });
+      },
+    },
+  });
+  const onSubmitContact = form.handleSubmit((values) => {
+    submitContact.mutate({ data: values });
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -668,20 +701,122 @@ export default function Landing() {
             transition={{ delay: 0.1 }}
             className="text-xl text-slate-600 mb-10"
           >
-            Join 50+ towing companies already using TowSite to generate more calls and dominate their local market.
+            Tell us about your towing business and we'll send a free mockup of your new site within 24 hours.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="max-w-2xl mx-auto"
           >
-            <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-semibold bg-primary hover:bg-primary/90 text-white rounded-md" asChild data-testid="button-final-cta">
-              <a href="mailto:hello@towsite.com">Email hello@towsite.com</a>
-            </Button>
-            <p className="text-slate-500 text-sm mt-4 sm:mt-0 sm:ml-4">No credit card required. Takes 5 minutes.</p>
+            <Card className="bg-white border border-slate-200 shadow-xl text-left">
+              <CardContent className="p-6 md:p-8">
+                {submitted ? (
+                  <div className="text-center py-8" data-testid="contact-success">
+                    <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <CheckCircle2 className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold font-heading text-slate-900 mb-2">Thanks — we got it!</h3>
+                    <p className="text-slate-600 mb-6">We'll reply within one business day with your free mockup.</p>
+                    <Button variant="outline" onClick={() => setSubmitted(false)} data-testid="button-send-another">Send another message</Button>
+                  </div>
+                ) : (
+                  <form onSubmit={onSubmitContact} className="space-y-4" data-testid="form-contact" noValidate>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="contact-name" className="text-slate-900 font-medium">Name *</Label>
+                        <Input
+                          id="contact-name"
+                          placeholder="Your name"
+                          className="mt-1.5 bg-white"
+                          autoComplete="name"
+                          data-testid="input-name"
+                          {...form.register("name")}
+                        />
+                        {form.formState.errors.name && (
+                          <p className="text-destructive text-xs mt-1">{form.formState.errors.name.message}</p>
+                        )}
+                      </div>
+                      <div>
+                        <Label htmlFor="contact-email" className="text-slate-900 font-medium">Email *</Label>
+                        <Input
+                          id="contact-email"
+                          type="email"
+                          placeholder="you@example.com"
+                          className="mt-1.5 bg-white"
+                          autoComplete="email"
+                          data-testid="input-email"
+                          {...form.register("email")}
+                        />
+                        {form.formState.errors.email && (
+                          <p className="text-destructive text-xs mt-1">{form.formState.errors.email.message}</p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="contact-company" className="text-slate-900 font-medium">Company</Label>
+                        <Input
+                          id="contact-company"
+                          placeholder="Towing company name"
+                          className="mt-1.5 bg-white"
+                          autoComplete="organization"
+                          data-testid="input-company"
+                          {...form.register("company")}
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="contact-phone" className="text-slate-900 font-medium">Phone</Label>
+                        <Input
+                          id="contact-phone"
+                          type="tel"
+                          placeholder="(555) 123-4567"
+                          className="mt-1.5 bg-white"
+                          autoComplete="tel"
+                          data-testid="input-phone"
+                          {...form.register("phone")}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="contact-message" className="text-slate-900 font-medium">Tell us about your business *</Label>
+                      <Textarea
+                        id="contact-message"
+                        placeholder="What services do you offer? What area do you cover? Any specific goals for your new website?"
+                        className="mt-1.5 min-h-32 bg-white"
+                        data-testid="input-message"
+                        {...form.register("message")}
+                      />
+                      {form.formState.errors.message && (
+                        <p className="text-destructive text-xs mt-1">{form.formState.errors.message.message}</p>
+                      )}
+                    </div>
+
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={submitContact.isPending}
+                      className="w-full h-14 text-lg font-semibold bg-primary hover:bg-primary/90 text-white rounded-md shadow-[0_0_25px_rgba(29,78,216,0.25)]"
+                      data-testid="button-submit-contact"
+                    >
+                      {submitContact.isPending ? (
+                        <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Sending…</>
+                      ) : (
+                        <>Get My Free Mockup <ChevronRight className="w-5 h-5 ml-1" /></>
+                      )}
+                    </Button>
+
+                    <p className="text-slate-500 text-xs text-center pt-2">
+                      Or email us directly at <a href="mailto:hello@towsite.com" className="text-primary hover:underline inline-flex items-center gap-1"><Mail className="w-3 h-3" />hello@towsite.com</a>. No credit card required.
+                    </p>
+                  </form>
+                )}
+              </CardContent>
+            </Card>
           </motion.div>
         </div>
       </section>

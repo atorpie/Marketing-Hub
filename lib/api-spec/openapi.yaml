@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: contact
+    description: Contact form operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,31 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /contact:
+    post:
+      operationId: submitContact
+      tags: [contact]
+      summary: Submit contact form
+      description: Receives a contact form submission from a prospective customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactSubmission"
+      responses:
+        "200":
+          description: Submission received
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactResponse"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +60,45 @@ components:
           type: string
       required:
         - status
-
+    ContactSubmission:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 2
+          maxLength: 80
+        email:
+          type: string
+          format: email
+          maxLength: 120
+        company:
+          type: string
+          maxLength: 120
+        phone:
+          type: string
+          maxLength: 32
+        message:
+          type: string
+          minLength: 10
+          maxLength: 2000
+      required:
+        - name
+        - email
+        - message
+    ContactResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        id:
+          type: string
+      required:
+        - success
+        - id
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
