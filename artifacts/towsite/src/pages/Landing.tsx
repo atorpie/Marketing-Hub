@@ -4,8 +4,6 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import TemplateSandboxPreview from "@/components/TemplateSandboxPreview";
 import { CheckCircle2, ChevronRight, Menu, PhoneOff, MonitorX, TrendingDown, Clock, ShieldCheck, Search, Star, MapPin } from "lucide-react";
 
 export default function Landing() {
@@ -341,11 +339,11 @@ export default function Landing() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Emergency Hero", desc: "Dark, bold, and urgent. Focuses entirely on emergency dispatch and immediate action.", colors: "from-red-600 to-rose-700" },
-              { name: "Local Authority", desc: "Clean and established. Perfect for building trust in your community as the go-to tow service.", colors: "from-blue-600 to-blue-900" },
-              { name: "Fleet Specialist", desc: "Corporate and professional. Ideal for companies with large fleets handling commercial accounts.", colors: "from-slate-700 to-slate-900" },
-              { name: "Modern Minimalist", desc: "Premium and sleek. Removes all clutter to get customers to call you as fast as possible.", colors: "from-zinc-700 to-zinc-900" },
-              { name: "Service Multiplier", desc: "Service-focused design. Best if you offer towing, recovery, lockouts, and roadside assistance.", colors: "from-amber-500 to-orange-700" }
+              { name: "Emergency Hero", desc: "Dark, bold, and urgent. Focuses entirely on emergency dispatch and immediate action.", colors: "from-red-600 to-rose-700", subdomain: "emergencyhero" },
+              { name: "Local Authority", desc: "Clean and established. Perfect for building trust in your community as the go-to tow service.", colors: "from-blue-600 to-blue-900", subdomain: "localauthority" },
+              { name: "Fleet Specialist", desc: "Corporate and professional. Ideal for companies with large fleets handling commercial accounts.", colors: "from-slate-700 to-slate-900", subdomain: "fleetspecialist" },
+              { name: "Modern Minimalist", desc: "Premium and sleek. Removes all clutter to get customers to call you as fast as possible.", colors: "from-zinc-700 to-zinc-900", subdomain: "modernminimalist" },
+              { name: "Service Multiplier", desc: "Service-focused design. Best if you offer towing, recovery, lockouts, and roadside assistance.", colors: "from-amber-500 to-orange-700", subdomain: "servicemultiplier" }
             ].map((tpl, i) => (
               <motion.div 
                 key={i}
@@ -372,22 +370,20 @@ export default function Landing() {
                     <p className="text-card-foreground/70 text-sm">{tpl.desc}</p>
                   </CardContent>
                   <CardFooter>
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button variant="outline" className="w-full text-card-foreground border-card-border hover:bg-card-border/50" data-testid={`button-view-template-${i}`}>
-                          View Template
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="bg-background text-foreground border-slate-200 max-w-2xl">
-                        <DialogHeader>
-                          <DialogTitle className="text-slate-900">{tpl.name} Preview</DialogTitle>
-                          <DialogDescription className="text-slate-600">
-                            This is a wireframe preview. All templates are customized with your actual brand colors, logo, and copy.
-                          </DialogDescription>
-                        </DialogHeader>
-                        <TemplateSandboxPreview template={tpl.name} />
-                      </DialogContent>
-                    </Dialog>
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="w-full text-card-foreground border-card-border hover:bg-card-border/50"
+                      data-testid={`button-view-template-${i}`}
+                    >
+                      <a
+                        href={`https://${tpl.subdomain}.towsite.com`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Template <ChevronRight className="ml-1 h-4 w-4" />
+                      </a>
+                    </Button>
                   </CardFooter>
                 </Card>
               </motion.div>
