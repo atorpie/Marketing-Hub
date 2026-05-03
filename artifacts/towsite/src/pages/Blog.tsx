@@ -31,7 +31,7 @@ export default function Blog() {
             <Link href="/" className="text-slate-600 hover:text-primary">Home</Link>
             <Link href="/blog" className="text-primary font-semibold">Blog</Link>
             <Button asChild className="bg-primary hover:bg-primary/90 text-white" size="sm">
-              <Link href="/#contact">Get Started</Link>
+              <a href="/#contact">Get Started</a>
             </Button>
           </nav>
         </div>
@@ -138,7 +138,7 @@ export default function Blog() {
             Get a professional towing website built around everything in this blog — launched in 7 days.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white h-14 px-8 text-lg font-semibold">
-            <Link href="/#contact">Get Your Free Mockup</Link>
+            <a href="/#contact">Get Your Free Mockup</a>
           </Button>
         </div>
       </section>

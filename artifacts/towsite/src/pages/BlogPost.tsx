@@ -38,7 +38,7 @@ export default function BlogPost() {
             <Link href="/" className="text-slate-600 hover:text-primary">Home</Link>
             <Link href="/blog" className="text-slate-600 hover:text-primary">Blog</Link>
             <Button asChild className="bg-primary hover:bg-primary/90 text-white" size="sm">
-              <Link href="/#contact">Get Started</Link>
+              <a href="/#contact">Get Started</a>
             </Button>
           </nav>
         </div>
@@ -78,7 +78,7 @@ export default function BlogPost() {
                 We build done-for-you towing websites in 7 days, with everything in this article baked in.
               </p>
               <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold h-12 px-8">
-                <Link href="/#contact">Get Your Free Mockup <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                <a href="/#contact">Get Your Free Mockup <ArrowRight className="w-4 h-4 ml-1" /></a>
               </Button>
             </CardContent>
           </Card>
