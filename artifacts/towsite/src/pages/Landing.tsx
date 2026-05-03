@@ -91,6 +91,7 @@ export default function Landing() {
             <button onClick={() => scrollTo("templates")} className="text-sm font-medium text-slate-700 hover:text-primary transition-colors" data-testid="link-templates">Templates</button>
             <button onClick={() => scrollTo("pricing")} className="text-sm font-medium text-slate-700 hover:text-primary transition-colors" data-testid="link-pricing">Pricing</button>
             <button onClick={() => scrollTo("faq")} className="text-sm font-medium text-slate-700 hover:text-primary transition-colors" data-testid="link-faq">FAQ</button>
+            <Link href="/blog" className="text-sm font-medium text-slate-700 hover:text-primary transition-colors" data-testid="link-blog">Blog</Link>
             <Button onClick={() => scrollTo("contact")} className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-md shadow-[0_0_20px_rgba(29,78,216,0.25)] hover:shadow-[0_0_25px_rgba(29,78,216,0.4)] transition-all" data-testid="button-nav-cta">
               Get Started
             </Button>
@@ -842,6 +843,7 @@ export default function Landing() {
                 <li><button onClick={() => scrollTo("templates")} className="text-slate-500 hover:text-primary transition-colors text-sm">Templates</button></li>
                 <li><button onClick={() => scrollTo("pricing")} className="text-slate-500 hover:text-primary transition-colors text-sm">Pricing</button></li>
                 <li><button onClick={() => scrollTo("faq")} className="text-slate-500 hover:text-primary transition-colors text-sm">FAQ</button></li>
+                <li><Link href="/blog" className="text-slate-500 hover:text-primary transition-colors text-sm">Blog</Link></li>
               </ul>
             </div>
             
