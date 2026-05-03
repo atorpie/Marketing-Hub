@@ -339,11 +339,11 @@ export default function Landing() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Emergency Hero", desc: "Dark, bold, and urgent. Focuses entirely on emergency dispatch and immediate action.", colors: "from-red-600 to-rose-700", subdomain: "emergencyhero" },
-              { name: "Local Authority", desc: "Clean and established. Perfect for building trust in your community as the go-to tow service.", colors: "from-blue-600 to-blue-900", subdomain: "localauthority" },
-              { name: "Fleet Specialist", desc: "Corporate and professional. Ideal for companies with large fleets handling commercial accounts.", colors: "from-slate-700 to-slate-900", subdomain: "fleetspecialist" },
-              { name: "Modern Minimalist", desc: "Premium and sleek. Removes all clutter to get customers to call you as fast as possible.", colors: "from-zinc-700 to-zinc-900", subdomain: "modernminimalist" },
-              { name: "Service Multiplier", desc: "Service-focused design. Best if you offer towing, recovery, lockouts, and roadside assistance.", colors: "from-amber-500 to-orange-700", subdomain: "servicemultiplier" }
+              { name: "Emergency Hero", desc: "Dark, bold, and urgent. Focuses entirely on emergency dispatch and immediate action.", colors: "from-red-600 to-rose-700", subdomain: "emergency" },
+              { name: "Local Authority", desc: "Clean and established. Perfect for building trust in your community as the go-to tow service.", colors: "from-blue-600 to-blue-900", subdomain: "local" },
+              { name: "Fleet Specialist", desc: "Corporate and professional. Ideal for companies with large fleets handling commercial accounts.", colors: "from-slate-700 to-slate-900", subdomain: "fleet" },
+              { name: "Modern Minimalist", desc: "Premium and sleek. Removes all clutter to get customers to call you as fast as possible.", colors: "from-zinc-700 to-zinc-900", subdomain: "modern" },
+              { name: "Service Multiplier", desc: "Service-focused design. Best if you offer towing, recovery, lockouts, and roadside assistance.", colors: "from-amber-500 to-orange-700", subdomain: "service" }
             ].map((tpl, i) => (
               <motion.div 
                 key={i}
