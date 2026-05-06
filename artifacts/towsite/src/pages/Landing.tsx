@@ -125,17 +125,27 @@ export default function Landing() {
             </motion.div>
             
             <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold font-heading text-slate-900 leading-[1.1] tracking-tight">
-              Professional Towing Websites. <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">Built Fast.</span> Designed to Convert.
+              Done-For-You Websites <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">for Towing Companies</span>
             </motion.h1>
             
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Get a custom, high-converting website for your towing business in days, not months. No coding. No long contracts. Start dominating local search today.
+              We build, host, and manage your towing website so you can get found online and turn visitors into phone calls. No setup fee. Domain included if needed. Built fast and optimized for mobile.
             </motion.p>
+
+            {/* Bullet list */}
+            <motion.div variants={fadeInUp} className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-xl mx-auto text-sm text-left pt-2">
+              {["No setup fee", "Built for towing companies", "Hosting included", "Domain included if needed", "Click-to-call focused", "Mobile optimized"].map((b) => (
+                <div key={b} className="flex items-center gap-2 text-slate-700">
+                  <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
+                  <span>{b}</span>
+                </div>
+              ))}
+            </motion.div>
             
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-semibold bg-primary hover:bg-primary/90 shadow-[0_0_30px_rgba(29,78,216,0.25)] hover:shadow-[0_0_40px_rgba(29,78,216,0.4)] transition-all rounded-md" onClick={() => scrollTo("contact")} data-testid="button-hero-primary">
-                Get Your Free Mockup <ChevronRight className="ml-2 h-5 w-5" />
+                Get Started Now <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto h-14 px-8 text-lg font-semibold border-slate-300 hover:bg-slate-100 text-slate-900 rounded-md" onClick={() => scrollTo("templates")} data-testid="button-hero-secondary">
                 See Templates
@@ -143,7 +153,7 @@ export default function Landing() {
             </motion.div>
 
             {/* Trust row */}
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 pt-6 text-sm">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 pt-4 text-sm">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   {["#1d4ed8", "#f59e0b", "#0f172a", "#475569"].map((c, i) => (
@@ -282,7 +292,7 @@ export default function Landing() {
                 TowSite: Done-For-You Towing Websites
               </motion.h2>
               <motion.p variants={fadeInUp} className="text-lg text-slate-600">
-                Stop stressing over tech. We build, host, and maintain a high-performance website for your towing business. Delivered in just 7 days, optimized to make your phone ring.
+                We handle your website so you can focus on towing calls. Built fast, kept up to date, and designed to get your phone ringing — not to impress other web designers.
               </motion.p>
               
               <motion.div variants={fadeInUp} className="space-y-4 pt-4">
@@ -301,7 +311,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h4 className="text-slate-900 font-semibold mb-1">Mobile-First & SEO-Ready</h4>
-                    <p className="text-slate-600 text-sm">Blazing fast load times and optimized for local "towing near me" searches.</p>
+                    <p className="text-slate-600 text-sm">Fast load times, tap-to-call buttons, and optimized for "towing near me" searches.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -309,8 +319,8 @@ export default function Landing() {
                     <CheckCircle2 className="h-4 w-4 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-slate-900 font-semibold mb-1">Recurring Revenue Model ($49-$99/month)</h4>
-                    <p className="text-slate-600 text-sm">No huge upfront costs. We handle the hosting, security, and updates.</p>
+                    <h4 className="text-slate-900 font-semibold mb-1">Affordable Monthly Plans</h4>
+                    <p className="text-slate-600 text-sm">No huge upfront costs. We build, host, and maintain your towing website for one simple monthly price.</p>
                   </div>
                 </div>
               </motion.div>
@@ -373,11 +383,11 @@ export default function Landing() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Emergency Hero", desc: "Dark, bold, and urgent. Focuses entirely on emergency dispatch and immediate action.", colors: "from-red-600 to-rose-700", subdomain: "emergency" },
-              { name: "Local Authority", desc: "Clean and established. Perfect for building trust in your community as the go-to tow service.", colors: "from-blue-600 to-blue-900", subdomain: "local" },
-              { name: "Fleet Specialist", desc: "Corporate and professional. Ideal for companies with large fleets handling commercial accounts.", colors: "from-slate-700 to-slate-900", subdomain: "fleet" },
-              { name: "Modern Minimalist", desc: "Premium and sleek. Removes all clutter to get customers to call you as fast as possible.", colors: "from-zinc-700 to-zinc-900", subdomain: "modern" },
-              { name: "Service Multiplier", desc: "Service-focused design. Best if you offer towing, recovery, lockouts, and roadside assistance.", colors: "from-amber-500 to-orange-700", subdomain: "service" }
+              { name: "Emergency", desc: "Bold and urgent. Built for companies that run 24/7 emergency towing and need calls fast.", colors: "from-red-600 to-rose-700", subdomain: "emergency" },
+              { name: "Local", desc: "Clean and trustworthy. Perfect for building your reputation as the go-to towing company in your area.", colors: "from-blue-600 to-blue-900", subdomain: "local" },
+              { name: "Fleet", desc: "Professional and structured. Great for companies with multiple trucks handling commercial accounts.", colors: "from-slate-700 to-slate-900", subdomain: "fleet" },
+              { name: "Modern", desc: "Simple and fast. No clutter — just your number, your services, and a clear reason to call.", colors: "from-zinc-700 to-zinc-900", subdomain: "modern" },
+              { name: "Service", desc: "Service-focused. Best when you offer towing, lockouts, fuel delivery, and roadside assistance.", colors: "from-amber-500 to-orange-700", subdomain: "service" }
             ].map((tpl, i) => (
               <motion.div 
                 key={i}
@@ -482,7 +492,7 @@ export default function Landing() {
           >
             <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">Pricing</span>
             <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Simple, Transparent Pricing</h2>
-            <p className="text-lg text-slate-600">No massive upfront builds. Just a simple monthly fee that covers everything. All plans include 24/7 uptime, SSL security, and Google SEO optimization.</p>
+            <p className="text-lg text-slate-600">No setup fee. No surprise charges. Just one flat monthly price that covers your website, hosting, and ongoing support.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
@@ -493,15 +503,27 @@ export default function Landing() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <Card className="bg-card border-none shadow-lg text-card-foreground">
+              <Card className="bg-card border-none shadow-lg text-card-foreground h-full flex flex-col">
                 <CardHeader className="pb-4">
                   <CardTitle className="text-xl font-heading text-card-foreground/70">Starter</CardTitle>
                   <div className="text-4xl font-bold mt-2">$49<span className="text-xl text-card-foreground/50 font-normal">/mo</span></div>
-                  <CardDescription className="text-card-foreground/60 mt-2">Perfect for single-truck operators.</CardDescription>
+                  <CardDescription className="text-card-foreground/60 mt-2">For towing companies that need a simple website online fast.</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1">
                   <ul className="space-y-3">
-                    {["1 Page Website", "Choice of 2 Templates", "Mobile Optimized", "Basic SEO", "Click-to-Call Buttons"].map((feat, i) => (
+                    {[
+                      "1-page towing website",
+                      "Choice of any template",
+                      "Mobile optimized",
+                      "Click-to-call buttons",
+                      "Google Business Profile connection",
+                      "Basic contact form",
+                      "Review / testimonial section",
+                      "Basic on-page SEO",
+                      "Hosting + SSL included",
+                      "Domain included if needed",
+                      "Basic launch edits",
+                    ].map((feat, i) => (
                       <li key={i} className="flex items-center gap-3 text-sm">
                         <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
                         <span>{feat}</span>
@@ -511,31 +533,38 @@ export default function Landing() {
                 </CardContent>
                 <CardFooter>
                   <Button variant="outline" className="w-full border-card-border text-card-foreground" onClick={() => scrollTo("contact")} data-testid="button-pricing-starter">
-                    Choose Starter
+                    Get Started
                   </Button>
                 </CardFooter>
               </Card>
             </motion.div>
 
-            {/* Professional */}
+            {/* Pro */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Card className="bg-slate-50 border border-primary relative shadow-[0_0_30px_rgba(29,78,216,0.15)] transform md:-translate-y-4">
+              <Card className="bg-slate-50 border border-primary relative shadow-[0_0_30px_rgba(29,78,216,0.15)] transform md:-translate-y-4 h-full flex flex-col">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                   Most Popular
                 </div>
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-heading text-slate-900">Professional</CardTitle>
+                  <CardTitle className="text-xl font-heading text-slate-900">Pro</CardTitle>
                   <div className="text-4xl font-bold mt-2 text-slate-900">$79<span className="text-xl text-slate-500 font-normal">/mo</span></div>
-                  <CardDescription className="text-slate-600 mt-2">For growing towing fleets.</CardDescription>
+                  <CardDescription className="text-slate-600 mt-2">Best for towing companies that want stronger local visibility without extra work.</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1">
                   <ul className="space-y-3 text-slate-700">
-                    {["5 Page Website", "All Templates", "Advanced Local SEO", "Lead Capture Forms", "Google Business Profile Sync", "Monthly Reporting"].map((feat, i) => (
+                    {[
+                      "Everything in Starter",
+                      "Up to 3 pages",
+                      "Google Business Profile optimization",
+                      "Active review management",
+                      "Service area SEO section",
+                      "Monthly performance snapshot",
+                    ].map((feat, i) => (
                       <li key={i} className="flex items-center gap-3 text-sm">
                         <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
                         <span>{feat}</span>
@@ -545,28 +574,37 @@ export default function Landing() {
                 </CardContent>
                 <CardFooter>
                   <Button className="w-full bg-primary hover:bg-primary/90 text-white" onClick={() => scrollTo("contact")} data-testid="button-pricing-pro">
-                    Choose Professional
+                    Get Started
                   </Button>
                 </CardFooter>
               </Card>
             </motion.div>
 
-            {/* Premium */}
+            {/* Growth */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Card className="bg-card border-none shadow-lg text-card-foreground">
+              <Card className="bg-card border-none shadow-lg text-card-foreground h-full flex flex-col">
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-heading text-card-foreground/70">Premium</CardTitle>
-                  <div className="text-4xl font-bold mt-2">$99<span className="text-xl text-card-foreground/50 font-normal">/mo</span></div>
-                  <CardDescription className="text-card-foreground/60 mt-2">For established regional players.</CardDescription>
+                  <CardTitle className="text-xl font-heading text-card-foreground/70">Growth</CardTitle>
+                  <div className="text-4xl font-bold mt-2">$129<span className="text-xl text-card-foreground/50 font-normal">/mo</span></div>
+                  <CardDescription className="text-card-foreground/60 mt-2">For towing companies that want ongoing local SEO support.</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-1">
                   <ul className="space-y-3">
-                    {["Unlimited Pages", "Custom Branding Focus", "Multi-Location SEO", "Dispatch Integration Setup", "Priority 24/7 Support", "Quarterly Strategy Call"].map((feat, i) => (
+                    {[
+                      "Everything in Pro",
+                      "Up to 5 pages",
+                      "1 Google Business Profile post/mo",
+                      "1 blog or service-area post/mo",
+                      "Monthly website updates",
+                      "Advanced local SEO structure",
+                      "Priority support",
+                      "Quarterly growth check-in",
+                    ].map((feat, i) => (
                       <li key={i} className="flex items-center gap-3 text-sm">
                         <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
                         <span>{feat}</span>
@@ -575,13 +613,24 @@ export default function Landing() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline" className="w-full border-card-border text-card-foreground" onClick={() => scrollTo("contact")} data-testid="button-pricing-premium">
-                    Choose Premium
+                  <Button variant="outline" className="w-full border-card-border text-card-foreground" onClick={() => scrollTo("contact")} data-testid="button-pricing-growth">
+                    Get Started
                   </Button>
                 </CardFooter>
               </Card>
             </motion.div>
           </div>
+
+          {/* Domain note */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-10 max-w-2xl mx-auto text-center text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg px-6 py-4"
+          >
+            <strong className="text-slate-900">Need a domain?</strong> First year is included. Domain renewals are $99/year after year one.{" "}
+            <strong className="text-slate-900">Already have a domain?</strong> We'll connect it and give you <span className="text-primary font-semibold">50% off your first month</span>.
+          </motion.div>
         </div>
       </section>
 
@@ -651,12 +700,12 @@ export default function Landing() {
 
           <Accordion type="single" collapsible className="w-full space-y-4">
             {[
-              { q: "Do you offer custom designs?", a: "While we use high-converting templates as a foundation, every site is heavily customized with your branding, colors, photos, and specific service offerings. It will look entirely unique to your business." },
-              { q: "Can I cancel anytime?", a: "Yes. We don't believe in holding businesses hostage. Our service is month-to-month and you can cancel anytime with 30 days notice." },
-              { q: "What if I need changes?", a: "Just email us! Minor text and image updates are included in your monthly fee. We typically handle updates within 24-48 hours." },
-              { q: "Do you handle SEO?", a: "Yes. All our sites are built with on-page SEO best practices (schema markup, fast load times, optimized headings). The Professional and Premium plans include advanced local SEO strategies." },
-              { q: "Is there a setup fee?", a: "No! We waive all setup and design fees. You just pay the flat monthly rate starting the day your site goes live." },
-              { q: "Can you integrate with my dispatch software?", a: "Yes, we can add tracking numbers, embed web booking widgets, and connect to most modern dispatch and CRM software (available on Premium plan)." }
+              { q: "How fast can my website go live?", a: "Most websites are completed within 5–7 business days after we receive your information." },
+              { q: "Is there a setup fee?", a: "No. TowSite has no setup fee." },
+              { q: "Do I need a domain?", a: "No. We can purchase and set up your domain for you. The first year is included with your plan." },
+              { q: "What if I already own a domain?", a: "We'll connect it to your new site and give you 50% off your first month." },
+              { q: "Can I cancel?", a: "Yes, but hosting, updates, and management stop when the subscription ends." },
+              { q: "Who is this for?", a: "TowSite is built for towing companies that want a professional website without paying thousands upfront." },
             ].map((faq, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="border-slate-200 bg-slate-50 px-6 rounded-lg data-[state=open]:border-primary/50 transition-colors">
                 <AccordionTrigger className="text-slate-900 hover:text-primary transition-colors text-left py-4">{faq.q}</AccordionTrigger>
