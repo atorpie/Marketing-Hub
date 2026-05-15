@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useSubmitContact } from "@workspace/api-client-react";
 import { SubmitContactBody } from "@workspace/api-zod";
-import { CheckCircle2, ChevronRight, Menu, PhoneOff, MonitorX, TrendingDown, Clock, ShieldCheck, Search, Star, MapPin, Loader2, Mail } from "lucide-react";
+import { CheckCircle2, ChevronRight, Menu, PhoneOff, MonitorX, TrendingDown, Clock, ShieldCheck, Search, Star, MapPin, Loader2, Mail, Truck, PhoneCall, Wrench, LayoutGrid, Zap, Radio, Phone } from "lucide-react";
 
 type ContactFormValues = z.infer<typeof SubmitContactBody>;
 
@@ -133,16 +133,6 @@ export default function Landing() {
               We build, host, and manage your towing website so you can get found online and turn visitors into phone calls. No setup fee. Domain included if needed. Built fast and optimized for mobile.
             </motion.p>
 
-            {/* Bullet list */}
-            <motion.div variants={fadeInUp} className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-xl mx-auto text-sm text-left pt-2">
-              {["No setup fee", "Built for towing companies", "Hosting included", "Domain included if needed", "Click-to-call focused", "Mobile optimized"].map((b) => (
-                <div key={b} className="flex items-center gap-2 text-slate-700">
-                  <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-                  <span>{b}</span>
-                </div>
-              ))}
-            </motion.div>
-            
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-semibold bg-primary hover:bg-primary/90 shadow-[0_0_30px_rgba(29,78,216,0.25)] hover:shadow-[0_0_40px_rgba(29,78,216,0.4)] transition-all rounded-md" onClick={() => scrollTo("contact")} data-testid="button-hero-primary">
                 Get Started Now <ChevronRight className="ml-2 h-5 w-5" />
@@ -169,6 +159,137 @@ export default function Landing() {
                 </div>
                 <span className="text-slate-700 font-medium">4.9/5 average rating</span>
               </div>
+            </motion.div>
+
+            {/* Interactive phone mockup — live dispatch preview */}
+            <motion.div variants={fadeInUp} className="relative mx-auto mt-12 w-full max-w-md">
+              {/* Floating dispatch chips */}
+              <motion.div
+                initial={{ opacity: 0, y: -10, x: -20 }}
+                animate={{ opacity: 1, y: 0, x: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="absolute -left-4 sm:-left-16 top-8 z-20 bg-white shadow-xl rounded-xl border border-slate-200 px-3 py-2.5 flex items-center gap-2.5 w-56 hidden sm:flex"
+                data-testid="hero-chip-call"
+              >
+                <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                  <PhoneCall className="w-4 h-4 text-red-600" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs font-bold text-slate-900">Incoming call</div>
+                  <div className="text-[11px] text-slate-500">I-95 · mile 142 · 0:08 ago</div>
+                </div>
+                <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse ml-auto"></span>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: -10, x: 20 }}
+                animate={{ opacity: 1, y: 0, x: 0 }}
+                transition={{ delay: 1.0, duration: 0.6 }}
+                className="absolute -right-4 sm:-right-16 top-32 z-20 bg-white shadow-xl rounded-xl border border-slate-200 px-3 py-2.5 flex items-center gap-2.5 w-52 hidden sm:flex"
+                data-testid="hero-chip-truck"
+              >
+                <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
+                  <Truck className="w-4 h-4 text-amber-600" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs font-bold text-slate-900">Truck dispatched</div>
+                  <div className="text-[11px] text-slate-500">ETA 8 min · Unit 03</div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10, x: -20 }}
+                animate={{ opacity: 1, y: 0, x: 0 }}
+                transition={{ delay: 1.2, duration: 0.6 }}
+                className="absolute -left-4 sm:-left-12 bottom-12 z-20 bg-white shadow-xl rounded-xl border border-slate-200 px-3 py-2.5 flex items-center gap-2.5 w-52 hidden sm:flex"
+                data-testid="hero-chip-review"
+              >
+                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                  <Star className="w-4 h-4 text-emerald-600 fill-emerald-600" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs font-bold text-slate-900">New 5-star review</div>
+                  <div className="text-[11px] text-slate-500">"Fast and professional"</div>
+                </div>
+              </motion.div>
+
+              {/* Phone frame */}
+              <motion.div
+                initial={{ opacity: 0, y: 20, rotate: -3 }}
+                animate={{ opacity: 1, y: 0, rotate: -3 }}
+                transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
+                className="relative mx-auto w-[260px] sm:w-[280px] bg-slate-900 rounded-[2.5rem] p-2 shadow-2xl shadow-primary/20"
+              >
+                {/* Phone notch */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-5 bg-slate-900 rounded-b-2xl z-10"></div>
+                {/* Screen */}
+                <div className="rounded-[2rem] bg-white overflow-hidden h-[540px] flex flex-col">
+                  {/* Emergency banner */}
+                  <div className="bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider py-2 text-center flex items-center justify-center gap-1.5">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                    24/7 Emergency Towing
+                  </div>
+                  {/* Mini nav */}
+                  <div className="px-4 pt-4 pb-2 flex items-center justify-between border-b border-slate-100">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-6 h-6 rounded bg-primary flex items-center justify-center text-white text-[10px] font-bold">A</div>
+                      <span className="text-[11px] font-bold text-slate-900">Acme Towing</span>
+                    </div>
+                    <div className="flex items-center gap-0.5">
+                      {[1,2,3,4,5].map(s => <Star key={s} className="h-2 w-2 fill-secondary text-secondary" />)}
+                      <span className="text-[9px] text-slate-500 ml-1">4.9</span>
+                    </div>
+                  </div>
+                  {/* Hero */}
+                  <div className="px-4 pt-4 flex-1">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-primary mb-1">Stranded?</div>
+                    <div className="text-lg font-heading font-bold text-slate-900 leading-tight mb-2">We'll be there in <span className="text-primary">15 min</span> or less.</div>
+                    <div className="text-[10px] text-slate-500 mb-4">Serving Springfield + 30-mile radius</div>
+
+                    {/* Pulsing call button */}
+                    <div className="relative">
+                      <span className="absolute inset-0 rounded-xl bg-red-500/50 animate-ping"></span>
+                      <div className="relative w-full bg-red-600 text-white rounded-xl py-3 px-4 flex items-center justify-center gap-2 shadow-lg shadow-red-500/40">
+                        <Phone className="w-4 h-4 fill-white" />
+                        <span className="font-bold text-sm">Call (555) 911-TOWS</span>
+                      </div>
+                    </div>
+
+                    {/* Mini services grid */}
+                    <div className="grid grid-cols-3 gap-1.5 mt-4">
+                      {[
+                        { icon: Truck, label: "Towing" },
+                        { icon: Wrench, label: "Lockout" },
+                        { icon: Zap, label: "Jump" },
+                      ].map(({ icon: Icon, label }) => (
+                        <div key={label} className="bg-slate-50 rounded-md py-2 flex flex-col items-center gap-1">
+                          <Icon className="w-3.5 h-3.5 text-primary" />
+                          <span className="text-[9px] font-semibold text-slate-700">{label}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Trust strip */}
+                    <div className="mt-4 flex items-center gap-1.5 text-[9px] text-slate-500">
+                      <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                      <span>Licensed · Insured · GPS-tracked fleet</span>
+                    </div>
+                  </div>
+                  {/* Bottom sticky call bar */}
+                  <div className="border-t border-slate-100 px-4 py-2.5 bg-white flex items-center justify-between">
+                    <div>
+                      <div className="text-[9px] text-slate-500">Tap to call</div>
+                      <div className="text-[11px] font-bold text-slate-900">(555) 911-TOWS</div>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shadow-md">
+                      <Phone className="w-3.5 h-3.5 text-white fill-white" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Subtle ambient glow under phone */}
+              <div className="absolute inset-x-0 -bottom-8 h-16 bg-primary/20 blur-3xl rounded-full -z-10"></div>
             </motion.div>
           </motion.div>
         </div>
@@ -436,46 +557,104 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* How it works — Dispatch Journey */}
       <section className="py-24 bg-slate-100 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        {/* Asphalt-style background */}
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle, #0f172a 1px, transparent 1px)", backgroundSize: "16px 16px" }}></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-20"
           >
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full mb-4">How It Works</span>
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Your Path to a Professional Website</h2>
-            <p className="text-lg text-slate-600">We do the heavy lifting so you can focus on running your business.</p>
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-secondary bg-secondary/10 px-3 py-1.5 rounded-full mb-4">
+              <Radio className="w-3.5 h-3.5 inline -mt-0.5 mr-1" />
+              The Dispatch Journey
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">From <span className="text-primary">Intake</span> to <span className="text-primary">Phone Ringing</span> in 7 Days</h2>
+            <p className="text-lg text-slate-600">We handle the buildout. You stay on the road running calls.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-300 -z-10"></div>
-            
-            {[
-              { step: "01", title: "Book a Demo", desc: "Quick 15-minute call to learn about your business and needs.", icon: PhoneOff },
-              { step: "02", title: "Choose a Template", desc: "Select the design that best fits your brand identity.", icon: MonitorX },
-              { step: "03", title: "We Customize", desc: "We add your colors, logo, photos, and write SEO copy.", icon: ShieldCheck },
-              { step: "04", title: "Go Live in 7 Days", desc: "We launch your site and set up tracking to measure calls.", icon: CheckCircle2 }
-            ].map((item, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+          {/* The road */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Animated dashed road line */}
+            <div className="hidden md:block absolute top-12 left-[8%] right-[8%] h-1 bg-slate-300 rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: "0%" }}
+                whileInView={{ width: "100%" }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex flex-col items-center text-center relative"
-              >
-                <div className="w-24 h-24 rounded-full bg-white border-4 border-primary flex items-center justify-center text-3xl font-bold font-heading text-primary mb-6 shadow-[0_0_20px_rgba(29,78,216,0.2)]">
-                  {item.step}
+                transition={{ duration: 1.8, ease: "easeOut", delay: 0.3 }}
+                className="h-full bg-gradient-to-r from-primary via-secondary to-primary"
+                style={{ backgroundSize: "20px 100%", backgroundImage: "repeating-linear-gradient(90deg, #1d4ed8 0 10px, transparent 10px 20px)" }}
+              />
+            </div>
+            {/* Truck animation along the road */}
+            <motion.div
+              initial={{ left: "0%", opacity: 0 }}
+              whileInView={{ left: "calc(100% - 56px)", opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 2.2, ease: "easeOut", delay: 0.5 }}
+              className="hidden md:flex absolute -top-2 w-14 h-14 rounded-full bg-secondary items-center justify-center shadow-xl shadow-secondary/40 z-10"
+            >
+              <Truck className="w-7 h-7 text-slate-900" />
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-4 relative">
+              {[
+                { step: "01", title: "Tell Us About Your Operation", desc: "Quick 15-min call. Service area, services, and what makes your shop different.", icon: Radio, color: "from-blue-500 to-primary" },
+                { step: "02", title: "Pick Your Template", desc: "Emergency, Local, Fleet, Modern, or Service — whichever fits your brand.", icon: LayoutGrid, color: "from-amber-500 to-orange-500" },
+                { step: "03", title: "We Build & Customize", desc: "Your colors, your trucks, your service area. SEO baked in from day one.", icon: Wrench, color: "from-slate-700 to-slate-900" },
+                { step: "04", title: "Go Live in 7 Days", desc: "Site is live, tracking wired up, GBP connected. Your phone starts ringing.", icon: PhoneCall, color: "from-emerald-500 to-emerald-700" }
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 + i * 0.15 }}
+                    className="flex flex-col items-center text-center group cursor-default"
+                  >
+                    {/* Numbered milestone */}
+                    <div className="relative mb-6">
+                      <div className={`w-24 h-24 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center shadow-xl group-hover:shadow-2xl group-hover:-translate-y-1 transition-all duration-300`}>
+                        <Icon className="w-10 h-10 text-white group-hover:scale-110 transition-transform" />
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-white border-2 border-slate-900 flex items-center justify-center text-xs font-bold font-heading text-slate-900 shadow-md">
+                        {item.step}
+                      </div>
+                    </div>
+                    <h3 className="text-lg font-bold font-heading text-slate-900 mb-2">{item.title}</h3>
+                    <p className="text-slate-600 text-sm max-w-[220px] leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Result strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1.2 }}
+              className="mt-16 bg-slate-900 rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-3xl mx-auto shadow-xl"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-white fill-white" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-slate-600 text-sm max-w-[200px]">{item.desc}</p>
-              </motion.div>
-            ))}
+                <div className="text-left">
+                  <div className="text-xs font-bold uppercase tracking-wider text-emerald-400">Day 7 onward</div>
+                  <div className="text-white font-semibold">Your phone rings. We keep your site running.</div>
+                </div>
+              </div>
+              <Button onClick={() => scrollTo("contact")} className="bg-secondary hover:bg-secondary/90 text-slate-900 font-semibold w-full sm:w-auto" data-testid="button-howitworks-cta">
+                Start the Build <ChevronRight className="ml-1 h-4 w-4" />
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
