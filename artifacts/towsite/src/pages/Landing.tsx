@@ -222,8 +222,6 @@ export default function Landing() {
               >
                 {/* Screen */}
                 <div className="rounded-[2rem] bg-white overflow-hidden h-[540px] flex flex-col relative">
-                  {/* Phone notch (inside screen, doesn't cover content) */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-900 rounded-b-2xl z-30"></div>
                   {/* Emergency banner */}
                   <div className="bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider py-2 text-center flex items-center justify-center gap-1.5">
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
