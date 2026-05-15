@@ -168,7 +168,7 @@ export default function Landing() {
                 initial={{ opacity: 0, y: -10, x: -20 }}
                 animate={{ opacity: 1, y: 0, x: 0 }}
                 transition={{ delay: 0.8, duration: 0.6 }}
-                className="absolute -left-4 sm:-left-16 top-8 z-20 bg-white shadow-xl rounded-xl border border-slate-200 px-3 py-2.5 flex items-center gap-2.5 w-56 hidden sm:flex"
+                className="absolute -left-4 sm:-left-16 top-8 z-20 bg-white shadow-xl rounded-xl border border-slate-200 px-3 py-2.5 items-center gap-2.5 w-56 hidden sm:flex"
                 data-testid="hero-chip-call"
               >
                 <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
@@ -185,7 +185,7 @@ export default function Landing() {
                 initial={{ opacity: 0, y: -10, x: 20 }}
                 animate={{ opacity: 1, y: 0, x: 0 }}
                 transition={{ delay: 1.0, duration: 0.6 }}
-                className="absolute -right-4 sm:-right-16 top-32 z-20 bg-white shadow-xl rounded-xl border border-slate-200 px-3 py-2.5 flex items-center gap-2.5 w-52 hidden sm:flex"
+                className="absolute -right-4 sm:-right-16 top-32 z-20 bg-white shadow-xl rounded-xl border border-slate-200 px-3 py-2.5 items-center gap-2.5 w-52 hidden sm:flex"
                 data-testid="hero-chip-truck"
               >
                 <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
@@ -201,7 +201,7 @@ export default function Landing() {
                 initial={{ opacity: 0, y: 10, x: -20 }}
                 animate={{ opacity: 1, y: 0, x: 0 }}
                 transition={{ delay: 1.2, duration: 0.6 }}
-                className="absolute -left-4 sm:-left-12 bottom-12 z-20 bg-white shadow-xl rounded-xl border border-slate-200 px-3 py-2.5 flex items-center gap-2.5 w-52 hidden sm:flex"
+                className="absolute -left-4 sm:-left-12 bottom-12 z-20 bg-white shadow-xl rounded-xl border border-slate-200 px-3 py-2.5 items-center gap-2.5 w-52 hidden sm:flex"
                 data-testid="hero-chip-review"
               >
                 <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
@@ -220,10 +220,10 @@ export default function Landing() {
                 transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
                 className="relative mx-auto w-[260px] sm:w-[280px] bg-slate-900 rounded-[2.5rem] p-2 shadow-2xl shadow-primary/20"
               >
-                {/* Phone notch */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-5 bg-slate-900 rounded-b-2xl z-10"></div>
                 {/* Screen */}
-                <div className="rounded-[2rem] bg-white overflow-hidden h-[540px] flex flex-col">
+                <div className="rounded-[2rem] bg-white overflow-hidden h-[540px] flex flex-col relative">
+                  {/* Phone notch (inside screen, doesn't cover content) */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-900 rounded-b-2xl z-30"></div>
                   {/* Emergency banner */}
                   <div className="bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider py-2 text-center flex items-center justify-center gap-1.5">
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
